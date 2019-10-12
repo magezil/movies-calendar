@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+from datetime import datetime
 import requests
 
 API_KEY=""
@@ -14,6 +14,7 @@ if __name__ == '__main__':
     results = r.json().get('results', [])
     for movie in results:
         # TODO: process when make frontend or add to calendar
-        print("{} - {}".format(movie['title'], movie['release_date']))
-    else:
-        print("No movies :(")
+        release_date = movie['release_date']
+        # Filter out already out movies for now
+        if datetime.strptime(release_date, "%Y-%m-%d") > datetime.today():
+            print("{} - {}".format(movie['title'], release_date))
