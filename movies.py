@@ -16,5 +16,6 @@ if __name__ == '__main__':
         # TODO: process when make frontend or add to calendar
         release_date = movie['release_date']
         # Filter out already out movies for now
-        if datetime.strptime(release_date, "%Y-%m-%d") > datetime.today():
+        # TODO: decide whether to show movies within the last week
+        if datetime.strptime(release_date, "%Y-%m-%d") >= datetime.today():
             print("{} - {}".format(movie['title'], release_date))
