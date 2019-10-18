@@ -2,7 +2,9 @@
 from datetime import datetime
 import requests
 
-API_KEY=""
+import config
+
+API_KEY=config.API_KEY
 
 if __name__ == '__main__':
     # TODO: see about getting only future movies rather than those already out
